@@ -3,7 +3,6 @@ var konami = function(callback) {
 		currentSequence = '',
 		inputHandler = function(evnt) {
 			currentSequence += evnt.keyCode.toString();
-			console.log(currentSequence);
 			if (targetSequence.indexOf(currentSequence) == 0) {
 				if (currentSequence.length === targetSequence.length) {
 					callback();
