@@ -1,6 +1,6 @@
 A small javascript snippet to implement a konami-code.
 
-Usage: ``konami(CALLBACK_FN)``
+Usage: `konami(CALLBACK_FN)`
 
 Example:
 ```
