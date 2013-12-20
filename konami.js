@@ -1,15 +1,17 @@
 var konami = function(callback) {
-	var targetSequence = '37393739383840406665',
-		currentSequence = '',
+	var targetSequence = [ 37, 39, 37, 39, 38, 38, 40, 40, 66, 65 ],
+		currentSequenceIndex = 0,
 		inputHandler = function(evnt) {
-			currentSequence += evnt.keyCode.toString();
-			if (targetSequence.indexOf(currentSequence) === 0) {
-				if (currentSequence.length === targetSequence.length) {
+			var expectedKeyCode = targetSequence[currentSequenceIndex];
+			if (expectedKeyCode === evnt.keyCode) {
+				if (currentSequenceIndex === targetSequence.length - 1) {
 					callback();
-					currentSequence = '';
+					currentSequenceIndex = 0;
+				} else {
+					currentSequenceIndex++;
 				}
 			} else {
-				currentSequence = '';
+				currentSequenceIndex = 0;
 			}
 		};
 	
